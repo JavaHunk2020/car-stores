@@ -28,7 +28,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>5.1.5.RELEASE</version>
 		</dependency>
-		
+		<!-- Spring jdbc module which makes jdbc programming easy -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>

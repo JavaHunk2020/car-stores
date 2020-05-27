@@ -11,36 +11,25 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-        <!-- Car honda=new Car();
-		//who is creating instance of Car ???programmer
-		honda.setColor("white");
-		honda.setModel("2018");
-		honda.setPrice(123); -->
-		<!-- 
-		object managed or created by spring is called bean
-		-->
-		
 		
 		<!-- IOC and dependency injection are same!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->		
-		<bean  id="showroom" class="com.car.ShowRoom">
+		<bean  id="carService" class="com.car.service.CarService">
+		      <!-- Setting bean of CarDao inside bean of CarService -->
+		      <property name="carDao"  ref="tcarDao"/>
 		      <property name="name" value="Regent PVT. LTD."/>
-		      <property name="address" value="CA912, 2982, Blueward."/>
-		      <property name="car" ref="honda"/>
 		</bean>
 		
-		<bean  id="honda"  class="com.car.Car">
-		       <property name="color" value="white"/>
-		       <property name="model" value="2018"/>
-		       <property name="price" value="123"/>
-		</bean>
-		
-			<bean  id="audi"  class="com.car.Car">
-		       <property name="color" value="red"/>
-		       <property name="model" value="2020"/>
-		       <property name="price" value="34545"/>
+		<!-- This is CarDao bean which will be used by service layer -->
+        <bean  id="tcarDao" class="com.car.service.CarDao">
+            <property name="dataSource" ref="pkdataSource"/>
 		</bean>
 
-		
-		
-        
+<!-- This is datasource bean which will be used by dao layer -->
+	<bean id="pkdataSource"		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/happy_hrs_db" />
+		<property name="username" value="root" />
+		<property name="password" value="mysql@1234" />
+	</bean>
  </beans>   

@@ -1,9 +1,23 @@
 package com.car;
 
 public class Car {
+	private int cid;
 	private String model;
 	private String color;
 	private int price;
+	
+	
+	public int getCid() {
+		return cid;
+	}
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+
+	public Car() {
+		System.out.println(")#)#)Cons Car");
+	}
 	
 	public void run() {
 		System.out.println("This car runs fine!!!!!!!!!!!!!!!!!!!!");
